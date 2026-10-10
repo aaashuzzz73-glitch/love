@@ -1,0 +1,967 @@
+
+/* General styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family:cursive;
+    text-align: center;
+    margin: 0;
+    padding: 30px 15px;
+    background: linear-gradient(135deg, #ffe4ea, #ff9ec0);
+    min-height: 100vh;
+}
+
+/* Headings */
+h1 {
+    color: navy;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #303f80;
+    margin-bottom: 25px;
+}
+
+p {
+    color: navy;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* REQUEST and COMMAND button container */
+.container {
+    width: 80%;
+    max-width: 650px;
+    min-height: 150px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: rgb(213, 236, 241);
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* All buttons */
+.button {
+    background-color: lightblue;
+    color: darkblue;
+    padding: 12px 22px;
+    border: 2px solid darkblue;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: cursive;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.button:hover {
+    background-color: pink;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 100, 0.15);
+}
+
+/* Click effect */
+.button:active {
+    transform: scale(0.97);
+}
+
+/* REQUEST / COMMAND message */
+.message {
+    color: navy;
+    text-align: center;
+    font-size: 20px;
+    margin: 20px auto;
+    min-height: 0;
+}
+
+/* GIF containers */
+.choice-media {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto;
+    animation: popIn 0.4s ease;
+}
+
+/* GIF images */
+.love-gif {
+    display: block;
+    width: 350px;
+    max-width: 85%;
+    height: auto;
+    max-height: 450px;
+    border-radius: 20px;
+    object-fit: contain;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* GIF appearance animation */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Oki Then button */
+.last-button {
+    display: block;
+    margin: 25px auto;
+}
+
+/* Page 2 and Page 3 */
+#secondPage,
+#thirdPage {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    text-align: center;
+}
+/* Mobile responsive design */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 26px;
+        line-height: 1.4;
+    }
+
+    h2 {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 100%;
+        min-height: 120px;
+        padding: 20px 10px;
+        gap: 12px;
+    }
+
+    .button {
+        padding: 10px 16px;
+        font-size: 16px;
+    }
+
+    .love-gif {
+        width: 280px;
+        max-width: 90%;
+        max-height: 350px;
+    }
+
+    .message {
+        font-size: 18px;
+    }
+
+    #secondPage,
+    #thirdPage {
+        padding: 20px 5px;
+    }
+}
+
+
+/* Scrollable date selection */
+.date-list {
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Each date card */
+.date-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 5px 18px rgba(100, 40, 70, 0.12);
+    border: 1px solid #f5d4e1;
+}
+
+.date-card h2 {
+    color: #8d3159;
+    margin-bottom: 15px;
+}
+
+/* Card pictures */
+.date-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    margin-bottom: 15px;
+}
+
+.date-card p {
+    color: #654456;
+    font-size: 16px;
+}
+
+/* Popup overlay */
+.date-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(35, 15, 28, 0.7);
+    padding: 20px;
+    overflow-y: auto;
+
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup box */
+.popup-content {
+    position: relative;
+    background: #fff5f8;
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+    padding: 25px 20px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    animation: popupAppear 0.3s ease;
+}
+
+.popup-content h2 {
+    color: #9c315d;
+    margin: 10px 25px 20px;
+}
+
+/* Large popup picture */
+.popup-content img {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 18px;
+}
+
+.popup-content p {
+    color: #633d50;
+    line-height: 1.7;
+}
+
+/* Close button */
+.close-popup {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: #8d3159;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* Popup animation */
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .date-card {
+        padding: 15px;
+    }
+
+    .date-card img {
+        height: 210px;
+    }
+
+    .popup-content {
+        padding: 22px 15px;
+    }
+
+    .popup-content img {
+        max-height: 260px;
+    }
+}
+
+/* Disabled Oki Then button */
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Back button */
+.back-button {
+    background-color: #ffe0eb;
+    color: #8d3159;
+    border-color: #d96b98;
+}
+.popup-content img {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    border-radius: 18px;
+    margin-bottom: 18px;
+}
+
+
+/* Celebration overlay */
+.celebration {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Confetti pieces */
+.confetti {
+    position: absolute;
+    top: -20px;
+    width: 10px;
+    height: 16px;
+    animation: confettiFall 1.5s ease-out forwards;
+}
+
+/* Falling hearts */
+.heart-pop {
+    position: absolute;
+    bottom: 0;
+    font-size: 28px;
+    animation: heartFloat 1.5s ease-out forwards;
+}
+
+/* Confetti animation */
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Hearts floating upwards */
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(-20vh) scale(1.3) rotate(15deg);
+    }
+
+    100% {
+        transform: translateY(-100vh) scale(0.8) rotate(-20deg);
+        opacity: 0;
+    }
+}
+
+/* Confirmation message */
+.celebration-message {
+    position: fixed;
+    z-index: 10001;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3);
+    width: 85%;
+    max-width: 420px;
+    background: #fff0f6;
+    color: #a52860;
+    padding: 28px 20px;
+    border: 3px solid #ff9fc7;
+    border-radius: 25px;
+    box-shadow: 0 0 35px rgba(255, 105, 180, 0.2);
+    font-size: 23px;
+    text-align: center;
+    animation: messagePop 0.2s ease forwards;
+}
+
+@keyframes messagePop {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Page 3: Love question */
+#thirdPage {
+    position: relative;
+    min-height: 70vh;
+}
+
+.love-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 35px auto;
+    min-height: 80px;
+}
+
+.love-buttons .button {
+    min-width: 110px;
+}
+
+/* NO button */
+.no-button {
+    background-color: #ffd6e4;
+    color: #a52860;
+    border-color: #d96b98;
+}
+
+/* Video shown after YES */
+.love-video {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    max-height: 65vh;
+    margin: 25px auto;
+    border-radius: 20px;
+    object-fit: contain;
+    box-shadow: 0 8px 25px rgba(180, 60, 120, 0.2);
+}
+
+.love-reaction {
+    color: #a52860;
+    animation: popIn 0.5s ease;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .love-buttons {
+        gap: 15px;
+    }
+
+    .love-video {
+        max-width: 100%;
+    }
+}
+.no-button {
+    position: relative;
+    transition:
+        left 0.3s ease-in-out,
+        top 0.2s ease-in-out,
+        transform 0.3s ease;
+    will-change: left, top;
+}
+
+.warning-popup {
+    display: none;
+    background: #fff0f6;
+    color: #a52860;
+    padding: 14px 20px;
+    margin: 15px auto;
+    max-width: 380px;
+    border: 2px solid #ff9fc7;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(255, 105, 180, 0.2);
+    font-size: 17px;
+    animation: popupAppear 0.3s ease;
+}
+
+#warningMessage:empty {
+    display: none !important;
+}
+
+#warningMessage:not(:empty) {
+    display: block !important;
+}
+
+/* Signup and login form layout */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #fff7fb;
+    border: 2px solid #b8dcff;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(40, 100, 180, 0.15);
+}
+
+.auth-card form:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-card label {
+    margin-top: 8px;
+    color: #174a9c;
+    font-weight: 600;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #a9cdf7;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.auth-card .button {
+    margin-top: 16px;
+    width: 100%;
+}
+
+.auth-link {
+    display: block;
+    margin: 16px auto 0;
+}
+
+.auth-card h1,
+.auth-card #authSubtitle {
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    .auth-card {
+        padding: 22px 16px;
+    }
+}
+
+/* Keep the inactive form hidden */
+.auth-card form[hidden] {
+    display: none !important;
+}
+
+/* PAGE 4 - CALENDAR */
+.calendar-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 45px 20px;
+  text-align: center;
+  color: #082b91;
+  background: linear-gradient(135deg, #ffdce8, #ffa8cb);
+}
+
+.calendar-page[hidden] {
+  display: none !important;
+}
+.calendar-card {
+    width: min(100%, 440px);
+    box-sizing: border-box;
+    margin: 40px auto;
+    padding: 30px 22px;
+    border: 2px solid #b2dfe9;
+    border-radius: 25px;
+    background: #fff7fb;
+    box-shadow: 0 8px 25px #c75b872b;
+}
+
+@media (max-width: 480px) {
+    .calendar-page {
+        padding: 25px 12px;
+    }
+
+    .calendar-card {
+        width: 100%;
+        margin: 24px auto;
+        padding: 24px 16px;
+    }
+}
+
+.calendar-card input[type="date"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 18px auto;
+  padding: 13px;
+  border: 2px solid #b2dfe9;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.next-calendar-btn {
+  display: block;
+  margin: 25px auto;
+  padding: 13px 28px;
+  border: 2px solid #082b91;
+  border-radius: 30px;
+  background: #b2dfe9;
+  color: #082b91;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.calendar-card button:hover,
+.next-calendar-btn:hover {
+  background: #ffc1d8;
+}
+/* Date details layout */
+#dateDetailsForm {
+    margin-top: 25px;
+    text-align: left;
+}
+
+#dateDetailsForm h3 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+#dateDetailsForm label {
+    display: block;
+    margin: 18px 0 8px;
+    font-weight: bold;
+    color: #082b91;
+}
+
+#dateDetailsForm input,
+#dateDetailsForm select {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px;
+    margin: 0 0 18px;
+    box-sizing: border-box;
+    border: 2px solid #b2dfe9;
+    border-radius: 12px;
+    background: #fff;
+    color: #082b91;
+    font-family: cursive;
+    font-size: 15px;
+}
+
+#dateDetailsForm button {
+    display: block;
+    margin: 24px auto 12px;
+}
+
+#backToLoveBtn {
+    display: block;
+    margin: 18px auto 0;
+}
+
+#selectedDateMessage {
+    margin: 20px 0;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+    .calendar-card {
+        margin: 24px auto;
+        padding: 24px 18px;
+    }
+
+    #dateDetailsForm input,
+    #dateDetailsForm select {
+        font-size: 14px;
+    }
+}
+
+.kiss-section {
+    width: min(100%, 440px);
+    box-sizing: border-box;
+    margin: 25px auto 40px;
+    padding: 25px 20px;
+    background: #fff7fb;
+    border: 2px solid #b2dfe9;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #c75b872b;
+    text-align: center;
+}
+
+.kiss-section h2 {
+    margin-bottom: 12px;
+    color: #a52860;
+}
+
+.kiss-section p {
+    overflow-wrap: anywhere;
+}
+
+.kiss-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.kiss-buttons .button {
+    margin: 0;
+}
+
+#kissMessage {
+    color: #a52860;
+    font-weight: bold;
+    min-height: 0;
+}
+
+@media (max-width: 480px) {
+    .kiss-section {
+        width: 100%;
+        padding: 22px 14px;
+    }
+}
+
+.song-page {
+    min-height: 100vh;
+    padding: 35px 16px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #ffe4ef, #ff9ec5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-card {
+    width: min(100%, 460px);
+    box-sizing: border-box;
+    padding: 30px 22px;
+    text-align: center;
+    background: #fff7fb;
+    border: 2px solid #b2dfe9;
+    border-radius: 28px;
+    box-shadow: 0 10px 30px #b84f7b30;
+}
+
+.song-heart {
+    font-size: 52px;
+    animation: songPulse 1.5s infinite;
+}
+
+.album-art {
+    display: grid;
+    place-items: center;
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
+    margin: 24px auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffc4dc, #b2dfe9);
+    font-size: 48px;
+    box-shadow: 0 8px 25px #b84f7b30;
+}
+
+.song-card audio {
+    display: block;
+    width: 100%;
+    margin: 24px auto;
+}
+
+#songEnding[hidden] {
+    display: none !important;
+}
+
+@keyframes songPulse {
+    50% { transform: scale(1.12); }
+}
+
+@media (max-width: 480px) {
+    .song-card {
+        padding: 24px 16px;
+    }
+
+    .album-art {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Minimal dreamy song page */
+
+.song-page {
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+
+    background:
+        radial-gradient(ellipse at 20% 20%,
+            #fff5f7 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 80%,
+            #f7c9e0 0%, transparent 45%),
+        linear-gradient(145deg, #f8d4dc, #ffdce8, #f5c4dc);
+
+    overflow: hidden;
+}
+
+.minimal-song {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.always-text {
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 5vw, 38px);
+    font-style: italic;
+    color: #557eaa;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.blue-heart-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 76px;
+    padding: 12px;
+    line-height: 1;
+    filter: drop-shadow(0 5px 16px #8bc8e8aa);
+    transition: transform 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.blue-heart-btn:hover {
+    transform: scale(1.15);
+}
+
+.blue-heart-btn.playing {
+    animation: blueHeartBeat 1.2s ease-in-out infinite;
+}
+
+.song-message {
+    color: #7898b9;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+@keyframes blueHeartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@media (max-width: 480px) {
+    .always-text {
+        font-size: 27px;
+    }
+
+    .blue-heart-btn {
+        font-size: 68px;
+    }
+}
+/* Minimal dreamy song page */
+
+.song-page {
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+
+    background:
+        radial-gradient(ellipse at 20% 20%,
+            #fff5f7 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 80%,
+            #f7c9e0 0%, transparent 45%),
+        linear-gradient(145deg, #f8d4dc, #ffdce8, #f5c4dc);
+
+    overflow: hidden;
+}
+
+.minimal-song {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.always-text {
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 5vw, 38px);
+    font-style: italic;
+    color: #557eaa;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.blue-heart-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 76px;
+    padding: 12px;
+    line-height: 1;
+    filter: drop-shadow(0 5px 16px #8bc8e8aa);
+    transition: transform 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.blue-heart-btn:hover {
+    transform: scale(1.15);
+}
+
+.blue-heart-btn.playing {
+    animation: blueHeartBeat 1.2s ease-in-out infinite;
+}
+
+.song-message {
+    color: #7898b9;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+@keyframes blueHeartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@media (max-width: 480px) {
+    .always-text {
+        font-size: 27px;
+    }
+
+    .blue-heart-btn {
+        font-size: 68px;
+    }
+}
