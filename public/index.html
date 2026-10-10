@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request for a Date ❤️</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- PAGE 0: LOGIN / REGISTER -->
+<section id="authPage" class="auth-page">
+    <div class="auth-card">
+        <h1>Hey baby! 🩵</h1>
+        <p id="authSubtitle">Create your little account 💌</p>
+
+        <form id="registerForm">
+            <label for="signupName">Enter your name</label>
+            <input id="signupName" name="name" type="text" required>
+
+            <label for="signupMood">Current mood rn</label>
+            <input id="signupMood" name="mood" type="text" required>
+
+            <label for="signupOkay">Okey ahno? 🥹</label>
+            <input id="signupOkay" name="okay" type="text" required>
+
+            <label for="signupEmail">Email</label>
+            <input id="signupEmail" name="email" type="email" required>
+
+            <label for="signupPassword">Password</label>
+            <input
+                id="signupPassword"
+                name="password"
+                type="password"
+                minlength="8"
+                required
+            >
+
+            <button class="button" type="submit">Create Account 💙</button>
+        </form>
+
+        <form id="loginForm" hidden>
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" name="email" type="email" required>
+
+            <label for="loginPassword">Password</label>
+            <input
+                id="loginPassword"
+                name="password"
+                type="password"
+                required
+            >
+
+            <button class="button" type="submit">Login 💌</button>
+        </form>
+
+        <p id="authMessage" role="status"></p>
+
+        <button type="button" id="toggleAuth" class="auth-link">
+            Already have an account? Login
+        </button>
+    </div>
+</section>
+
+<!-- WEBSITE CONTENT -->
+<div id="websiteContent" hidden>
+
+    <!-- PAGE 1 -->
+    <section id="mainPage">
+        <h1>DATE INU POYALO 😚😩</h1>
+        <p>oii ponnare ntha chindikkunney? ehhhh</p>
+
+        <h2>Chakkare Choose what you want:</h2>
+
+        <div class="container">
+            <button class="button" data-action="request">REQUEST!</button>
+            <button class="button" data-action="command">COMMAND!</button>
+        </div>
+
+        <div id="requestMedia" class="choice-media" style="display:none;">
+            <img src="./image/cat.gif" alt="Cute cat GIF" class="love-gif">
+        </div>
+
+        <div id="commandMedia" class="choice-media" style="display:none;">
+            <img src="./image/command.gif" alt="Command GIF" class="love-gif">
+        </div>
+
+        <h3 class="message" id="message"></h3>
+
+        <button class="button last-button" data-action="next-page">
+            oki then......😚❤️
+        </button>
+
+        <h3 id="warningMessage" style="display:none;"></h3>
+    </section>
+
+    <!-- PAGE 2: DATE CHOICES -->
+    <section id="secondPage" style="display:none;">
+        <h1>Yayyyy! 😭❤️</h1>
+        <h2>Choose our date, baby 😚💗</h2>
+        <p>Scroll down and choose our little adventure 🥹💕</p>
+
+        <div class="date-list">
+
+            <div class="date-card">
+                <h2>TEMPLE DATE 🛕</h2>
+                <img src="./image/image.png" alt="Temple date">
+                <p>PEACEFULLY അമ്പലത്തിൽ പോകാം? ❤️</p>
+                <button class="button" data-date="temple">SELECT 💗</button>
+            </div>
+
+            <div class="date-card">
+                <h2>TEA DATE ☕</h2>
+                <img src="./image/tea.jpg" alt="Tea date">
+                <p>BAA ചായ കുടിക്കാൻ പോകാം.. 🥹</p>
+                <button class="button" data-date="tea">SELECT 💗</button>
+            </div>
+
+            <div class="date-card">
+                <h2>BEACH DATE 🌊</h2>
+                <img src="./image/beach.jpg" alt="Beach date">
+                <p>എന്നെ ഒന്ന് കടൽ കാണിച്ച് തരുമോ? 💕</p>
+                <button class="button" data-date="beach">SELECT 💗</button>
+            </div>
+
+            <div class="date-card">
+                <h2>GO ON A RIDE DATE 🛵</h2>
+                <img src="./image/ride.jpg" alt="Ride date">
+                <p>Just you and me, ഞാൻ വണ്ടി ഓടിക്കാം, വരുന്നോ കൂടെ? 😚</p>
+                <button class="button" data-date="ride">SELECT 💗</button>
+            </div>
+
+            <div class="date-card">
+                <h2>SHOPPING DATE 🛍️</h2>
+                <img src="./image/shopping.jpg" alt="Shopping date">
+                <p>ഷോപ്പിംഗിന് പോയാലോ? 🎀</p>
+                <button class="button" data-date="shopping">SELECT 💗</button>
+            </div>
+
+            <div class="date-card">
+                <h2>MOVIE DATE 🎬</h2>
+                <img src="./image/movie.jpg" alt="Movie date">
+                <p>സിനിമ കാണാൻ മൂഡ് ഉണ്ടോ? 🍿</p>
+                <button class="button" data-date="movie">SELECT 💗</button>
+            </div>
+
+            <div class="date-card">
+                <h2>NARANGAVELLAM DATE 🍋</h2>
+                <img src="./image/narangavellam.jpg" alt="Lemon juice date">
+                <p>നാരങ്ങ വെള്ളം കുടിക്കാൻ പോകാം 🥹❤️</p>
+                <button class="button" data-date="naranga">SELECT 💗</button>
+            </div>
+
+        </div>
+
+        <h3 id="dateWarning" class="warning-popup" style="display:none;"></h3>
+
+        <button class="button last-button" data-action="third-page">
+            Can we go to the next level? 😚❤️
+        </button>
+    </section>
+
+    <!-- DATE POPUP -->
+    <div id="datePopup" class="date-popup" style="display:none;">
+        <div class="popup-content">
+            <button
+                type="button"
+                class="close-popup"
+                data-action="close-date"
+                aria-label="Close popup"
+            >&times;</button>
+
+            <h2 id="popupTitle">Our Date 💗</h2>
+            <img id="popupImage" src="" alt="Selected date">
+            <p id="popupDescription"></p>
+
+            <button class="button" data-action="confirm-date">
+                Confirm this date ❤️
+            </button>
+        </div>
+    </div>
+
+    <!-- PAGE 3: LOVE QUESTION -->
+    <section id="thirdPage" style="display:none;">
+        <h2 id="loveQuestion">Do you love me? 😚💗</h2>
+
+        <div class="love-buttons" id="loveButtons">
+            <button class="button" data-action="say-yes">YES 💖</button>
+            <button class="button no-button" id="noButton" data-action="move-no">
+                NO 😒🙁
+            </button>
+        </div>
+
+        <div id="loveAnswer" style="display:none;">
+            <img
+                src="./image/command%20(1).gif"
+                class="love-video"
+                alt="Cute love GIF"
+            >
+
+            <h2 class="love-reaction">Oh, you really do love me? 🥹❤️</h2>
+            <p>Hehehe, I knew it, ponnaahhh! 😚💕</p>
+
+            <button
+                type="button"
+                id="nextCalendarBtn"
+                class="next-calendar-btn"
+            >
+                Next Page 💌
+            </button>
+        </div>
+    </section>
+
+    <!-- PAGE 4: CALENDAR -->
+    <section id="calendarPage" class="calendar-page" hidden>
+        <h1>Our Little Date Planner 🩵</h1>
+        <p>Chakkare, nammal eppo date inu pokum? 🥹💕</p>
+
+        <div class="calendar-card">
+            <h2>Our Special Date 💗</h2>
+            <p>Choose our special day, baby 🥹🩵</p>
+
+            <label for="dateChoice">Choose a date 📅</label>
+            <input type="date" id="dateChoice" required>
+
+            <button type="button" id="saveDateBtn" class="button">
+                Save Our Date 💗
+            </button>
+
+            <p id="selectedDateMessage" role="status"></p>
+
+            <!-- Shown after clicking Save Our Date -->
+            <div id="dateDetailsForm" hidden>
+                <h3>Our Date Details 💌</h3>
+
+                <label for="dateTime">Time ⏰</label>
+                <input type="time" id="dateTime" required>
+
+                <label for="datePlace">Place 📍</label>
+                <input
+                    type="text"
+                    id="datePlace"
+                    placeholder="Where shall we go?"
+                    maxlength="150"
+                    required
+                >
+
+                <label for="dateType">Date Type 💕</label>
+                <select id="dateType" required>
+                    <option value="">Choose our date</option>
+                    <option value="Temple Date">Temple Date 🛕</option>
+                    <option value="Tea Date">Tea Date ☕</option>
+                    <option value="Beach Date">Beach Date 🌊</option>
+                    <option value="Ride Date">Ride Date 🛵</option>
+                    <option value="Shopping Date">Shopping Date 🎀</option>
+                    <option value="Movie Date">Movie Date 🎬</option>
+                    <option value="Narangavellam Date">Narangavellam Date 🍋</option>
+                    <option value="Other">Other 💗</option>
+                </select>
+
+                <button type="button" id="confirmOurDateBtn" class="button">
+                    Confirm Our Date 💌
+                </button>
+            </div>
+
+            <button type="button" id="backToLoveBtn" class="button">
+                Back 💗
+            </button>
+        
+        </div>
+<div class="kiss-section">
+    <h2>One last question, baby... 🥹💗</h2>
+    <p>Can I kiss you? 😚💋</p>
+
+    <div class="kiss-buttons">
+        <button type="button" class="button" id="kissYes">
+            YES 😚💋
+        </button>
+
+        <button type="button" class="button" id="kissNo">
+            NO 🙈
+        </button>
+    </div>
+
+    <p id="kissMessage" role="status"></p>
+</div>
+    </section>
+    
+<section id="songPage" class="song-page" style="display: none;">
+    <div class="minimal-song">
+        <p class="always-text">I'm always with you</p>
+
+        <button
+            type="button"
+            id="blueHeartBtn"
+            class="blue-heart-btn"
+            aria-label="Play our song"
+            aria-pressed="false"
+        >
+            🩵
+        </button>
+
+        <p id="songMessage" class="song-message">
+            tap the heart ♡
+        </p>
+
+        <audio id="ourSong" preload="metadata">
+            <source src="./our-song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+</section>
+</div>
+
+<!-- Load scripts once -->
+<script src="./main.js" defer></script>
+<script src="./auth.js" defer></script>
+
+</body>
+</html>
