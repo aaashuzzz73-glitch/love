@@ -439,3 +439,20 @@ blueHeartBtn?.addEventListener("click", async () => {
 ourSong?.addEventListener("ended", () => {
     blueHeartBtn?.classList.remove("playing");
 });
+
+const noBtn = document.getElementById("noBtn");
+
+function moveNoButton() {
+  const maxX = window.innerWidth - noBtn.offsetWidth;
+  const maxY = window.innerHeight - noBtn.offsetHeight;
+
+  noBtn.style.position = "fixed";
+  noBtn.style.left = Math.random() * Math.max(0, maxX) + "px";
+  noBtn.style.top = Math.random() * Math.max(0, maxY) + "px";
+}
+
+noBtn.addEventListener("pointerenter", moveNoButton);
+noBtn.addEventListener("touchstart", (event) => {
+  event.preventDefault();
+  moveNoButton();
+}, { passive: false });
