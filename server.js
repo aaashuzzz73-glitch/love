@@ -181,6 +181,7 @@ app.post("/api/login", limiter, async (req, res, next) => {
     }
 });
 
+
 app.post("/api/date", async (req, res, next) => {
     try {
         if (!req.session.userId) {
@@ -189,7 +190,7 @@ app.post("/api/date", async (req, res, next) => {
             });
         }
 
-        const { date } = req.body;
+        const { date, time, place, dateType } = req.body;
 
         if (
             typeof date !== "string" ||
@@ -197,6 +198,19 @@ app.post("/api/date", async (req, res, next) => {
         ) {
             return res.status(400).json({
                 message: "Please choose a valid date."
+            });
+        }
+
+        if (
+            typeof time !== "string" ||
+            !time.trim() ||
+            typeof place !== "string" ||
+            !place.trim() ||
+            typeof dateType !== "string" ||
+            !dateType.trim()
+        ) {
+            return res.status(400).json({
+                message: "Please fill in all date details."
             });
         }
 
@@ -208,6 +222,9 @@ app.post("/api/date", async (req, res, next) => {
             {
                 $set: {
                     plannedDate: date,
+                    plannedTime: time,
+                    plannedPlace: place.trim(),
+                    plannedDateType: dateType,
                     plannedDateUpdatedAt: new Date()
                 }
             }
@@ -215,12 +232,16 @@ app.post("/api/date", async (req, res, next) => {
 
         res.json({
             message: "Our special date is saved, baby! 💗",
-            date
+            date,
+            time,
+            place: place.trim(),
+            dateType
         });
     } catch (error) {
         next(error);
     }
 });
+
 
 app.get("/api/date", async (req, res, next) => {
     try {
@@ -234,7 +255,14 @@ app.get("/api/date", async (req, res, next) => {
 
         const user = await users.findOne(
             { _id: new ObjectId(req.session.userId) },
-            { projection: { plannedDate: 1 } }
+            {
+    projection: {
+        plannedDate: 1,
+        plannedTime: 1,
+        plannedPlace: 1,
+        plannedDateType: 1
+    }
+}
         );
 
         if (!user) {
@@ -243,7 +271,12 @@ app.get("/api/date", async (req, res, next) => {
             });
         }
 
-        res.json({ date: user.plannedDate || null });
+        res.json({
+    date: user.plannedDate || null,
+    time: user.plannedTime || "",
+    place: user.plannedPlace || "",
+    dateType: user.plannedDateType || ""
+});
     } catch (error) {
         next(error);
     }
